@@ -1,1 +1,1 @@
-После публикации замените эту строку URL вашего GitHub-репозитория, например: https://github.com/USERNAME/vllm-cpu-k8s\n
+https://github.com/11Hawkstyle00/Inference_system_for_LLM.git
