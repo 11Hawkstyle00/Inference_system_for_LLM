@@ -1,0 +1,18 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    HOME=/home/downloader \
+    HF_HOME=/models/.hf-cache
+
+WORKDIR /opt/downloader
+COPY requirements-downloader.txt ./requirements.txt
+COPY scripts/download_model.py ./download_model.py
+
+RUN python -m pip install --no-deps -r requirements.txt \
+    && mkdir -p /models /home/downloader \
+    && chown -R 10001:10001 /opt/downloader /models /home/downloader
+
+USER 10001:10001
+ENTRYPOINT ["python", "/opt/downloader/download_model.py"]

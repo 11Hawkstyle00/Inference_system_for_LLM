@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vllm-config
+  namespace: llm-inference
+data:
+  MODEL_ID: "Qwen/Qwen2.5-0.5B-Instruct"
+  MODEL_PATH: "/models/qwen2.5-0.5b-instruct"
+  SERVED_MODEL_NAME: "qwen2.5-0.5b-instruct"
+  MAX_MODEL_LEN: "2048"
+  MAX_NUM_SEQS: "4"
+  CPU_OMP_THREADS: "4"
+  CPU_KVCACHE_SPACE: "4"
